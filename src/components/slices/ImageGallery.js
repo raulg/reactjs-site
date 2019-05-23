@@ -1,33 +1,51 @@
-import React from 'react';
-import {Link, RichText} from 'prismic-reactjs';
+import React from 'react'
+import { Link as RouterLink } from 'react-router-dom'
+import { Link, RichText } from 'prismic-reactjs'
+import { shape, array, arrayOf, object } from 'prop-types'
+import { imagePropType, prismicPropType } from '../../utils/propTypes'
 
-export default class ImageGallery extends React.Component {
-  galleryItem() {
-    return this.props.slice.items.map((item, index) => {
+const ImageGallery = ({ slice, prismicCtx }) => {
+  const galleryItem = () => {
+    return slice.items.map((item, index) => {
       return (
-        <div className="gallery-item" key={index}>
+        <div className='gallery-item' key={index}>
           <img src={item.image.url} alt={item.image.alt} />
-          {RichText.render(item.image_description, this.props.prismicCtx.linkResolver)}
-          {RichText.asText(item.link_label) !== "" ? (
-            <p className="gallery-link">
-              <a href={Link.url(item.link, this.props.prismicCtx.linkResolver)}>
+          {RichText.render(item.image_description, prismicCtx.linkResolver)}
+          {RichText.asText(item.link_label) !== '' ? (
+            <p className='gallery-link'>
+              <RouterLink to={Link.url(item.link, prismicCtx.linkResolver)}>
                 {RichText.asText(item.link_label)}
-              </a>
+              </RouterLink>
             </p>
           ) : '' }
         </div>
-      );
-    });
+      )
+    })
   }
 
-  render() {
-    return (
-      <section className="image-gallery content-section">
-        {RichText.render(this.props.slice.primary.gallery_title, this.props.prismicCtx.linkResolver)}
-        <div className="gallery">
-          {this.galleryItem()}
-        </div>
-      </section>
-    );
-  }
+  return (
+    <section className='image-gallery content-section'>
+      {RichText.render(slice.primary.gallery_title, prismicCtx.linkResolver)}
+      <div className='gallery'>
+        {galleryItem()}
+      </div>
+    </section>
+  )
 }
+
+ImageGallery.propTypes = {
+  slice: shape({
+    primary: shape({
+      gallery_title: array
+    }),
+    items: arrayOf(shape({
+      image_description: array,
+      link: object,
+      link_label: array,
+      image: imagePropType.isRequired
+    }))
+  }),
+  prismicCtx: prismicPropType.isRequired
+}
+
+export default ImageGallery

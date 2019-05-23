@@ -3,6 +3,14 @@
 # Prismic React Site Example
 This project is an implementation of the Prismic multipage site demo using ReactJS. Built up from the starter project, it's meant to provide you with an idea of how to build your own sites using the Prismic features. Read our user guide (once published) if you need guidance on how to use this repository.
 
+### Getting started quickly with Prismic Themes
+You can use our [Prismic-CLI](https://github.com/prismicio/prismic-cli) tool to quickly install this project in your machine, as well as setting up a Prismic repository with the required Custom Types. Just follow the instructions in your terminal to get started!
+
+```
+> $ npm install -g prismic-cli
+> $ prismic theme https://github.com/raulg/reactjs-website --conf /src/prismic-configuration.js
+```
+
 ### Install dependencies
 ```
 > $ npm install
@@ -13,11 +21,6 @@ Build and open your browser to http://localhost:3000.
 > $ npm start
 ```
 
-### Launches the test runner in the interactive watch mode
-```
-> $ npm run test
-```
-
 ### Builds the app for production to the build folder
 ```
 > $ npm run build
@@ -25,6 +28,10 @@ Build and open your browser to http://localhost:3000.
 
 ### Deployment
 This project is ready for deployment using [Netlify](https://www.netlify.com), if you're interested in deploying to other platforms review the suggested [solutions](https://facebook.github.io/create-react-app/docs/deployment).
+
+### Get started with Prismic
+
+You can find out how to get started with Prismic from [our React documentation](https://prismic.io/docs/reactjs/getting-started/getting-started-from-scratch).
 
 
 ### Licence
