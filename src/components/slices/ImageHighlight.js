@@ -24,16 +24,16 @@ const ImageHighlight = ({ slice, prismicCtx }) => (
 )
 
 ImageHighlight.propTypes = {
-  prismicCtx: prismicPropType.isRequired,
   slice: shape({
     primary: shape({
       featured_image: imagePropType.isRequired,
-      title: array.isRequired,
       headline: array.isRequired,
       link_label: array,
-      link: object
-    })
-  })
+      link: object,
+      title: array.isRequired
+    }).isRequired
+  }).isRequired,
+  prismicCtx: prismicPropType.isRequired
 }
 
 export default ImageHighlight

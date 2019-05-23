@@ -14,8 +14,8 @@ Quote.propTypes = {
   slice: shape({
     primary: shape({
       quote_text: array.isRequired
-    })
-  })
+    }).isRequired
+  }).isRequired
 }
 
 export default Quote

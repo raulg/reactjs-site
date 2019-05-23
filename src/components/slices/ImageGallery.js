@@ -33,18 +33,20 @@ const ImageGallery = ({ slice, prismicCtx }) => {
   )
 }
 
+const itemShape = shape({
+  image_description: array,
+  image: imagePropType.isRequired,
+  link_label: array,
+  link: object
+})
+
 ImageGallery.propTypes = {
   slice: shape({
     primary: shape({
       gallery_title: array
-    }),
-    items: arrayOf(shape({
-      image_description: array,
-      link: object,
-      link_label: array,
-      image: imagePropType.isRequired
-    }))
-  }),
+    }).isRequired,
+    items: arrayOf(itemShape).isRequired
+  }).isRequired,
   prismicCtx: prismicPropType.isRequired
 }
 

@@ -1,6 +1,6 @@
-import React, { useState, useEffect, Fragment } from 'react'
-import { SliceZone } from '../components/slices'
+import React, { Fragment, useEffect, useState } from 'react'
 import { Header, Footer, Loader } from '../components'
+import { SliceZone } from '../components/slices'
 import NotFound from './NotFound'
 import { client } from '../prismic-configuration'
 

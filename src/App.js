@@ -4,7 +4,7 @@ import {
   Route,
   Switch
 } from 'react-router-dom'
-import { HomePage, Page, NotFound } from './pages'
+import { HomePage, NotFound, Page } from './pages'
 import Preview from './Preview'
 
 const App = (props) => (

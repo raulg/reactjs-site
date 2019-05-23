@@ -12,8 +12,8 @@ FullWidthImage.propTypes = {
   slice: shape({
     primary: shape({
       image: imagePropType.isRequired
-    })
-  })
+    }).isRequired
+  }).isRequired
 }
 
 export default FullWidthImage

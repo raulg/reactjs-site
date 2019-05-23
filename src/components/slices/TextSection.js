@@ -4,7 +4,7 @@ import { shape, array, string } from 'prop-types'
 import { prismicPropType } from '../../utils/propTypes'
 
 const TextSection = ({ slice, prismicCtx }) => {
-  const sectionClass = slice.slice_label ? 'text-section-' + slice.slice_label : 'text-section-1col'
+  const sectionClass = slice.slice_label ? `text-section-${slice.slice_label}` : 'text-section-1col'
   return (
     <section className={`content-section ${sectionClass}`}>
       <div>
@@ -15,13 +15,13 @@ const TextSection = ({ slice, prismicCtx }) => {
 }
 
 TextSection.propTypes = {
-  prismicCtx: prismicPropType.isRequired,
   slice: shape({
     slice_label: string,
     primary: shape({
       rich_text: array.isRequired
-    })
-  })
+    }).isRequired
+  }).isRequired,
+  prismicCtx: prismicPropType.isRequired
 }
 
 export default TextSection
