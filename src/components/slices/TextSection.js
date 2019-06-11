@@ -8,7 +8,7 @@ const TextSection = ({ slice, prismicCtx }) => {
   return (
     <section className={`content-section ${sectionClass}`}>
       <div>
-        {RichText.render(slice.primary.rich_text, prismicCtx.linkResolver)}
+        <RichText render={slice.primary.rich_text} linkResolver={prismicCtx.linkResolver} />
       </div>
     </section>
   )

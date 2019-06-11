@@ -7,8 +7,8 @@ import { prismicPropType, imagePropType } from '../../utils/propTypes'
 const ImageHighlight = ({ slice, prismicCtx }) => (
   <section className='highlight content-section'>
     <div className='highlight-left'>
-      {RichText.render(slice.primary.title, prismicCtx.linkResolver)}
-      {RichText.render(slice.primary.headline, prismicCtx.linkResolver)}
+      <RichText render={slice.primary.title} linkResolver={prismicCtx.linkResolver} />
+      <RichText render={slice.primary.headline} linkResolver={prismicCtx.linkResolver} />
       {RichText.asText(slice.primary.link_label) !== '' ? (
         <p>
           <RouterLink to={Link.url(slice.primary.link, prismicCtx.linkResolver)}>
